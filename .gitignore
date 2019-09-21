@@ -1,8 +1,7 @@
-# IDEs
 /nbproject
 /.idea
+/scripts.d
 
-# Temp dirs & trash
 /temp
 /tmp
 .DS_Store
