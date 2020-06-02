@@ -37,7 +37,7 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh \\
   && sed -i "s#http://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
   && addgroup -g 1000 node \\
   && adduser -u 1000 -G node -s /bin/sh -D node \\
-  && apk add --no-cache curl nodejs tar zstd \\
+  && apk add --no-cache curl nodejs=~\$NODE_VERSION tar zstd \\
   && ln -s /usr/bin/node /usr/bin/nodejs \\
   && node --version \\
   # && sed -i "s#:/bin/ash#:/bin/bash#g" /etc/passwd \\
