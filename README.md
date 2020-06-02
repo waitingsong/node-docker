@@ -12,7 +12,6 @@ Base [`node`][link_base_node_image] images does not contains additional utils su
 Applications from base images:
 - `node`
 - `npm`
-- `yarn`
 
 Additional applications list:
 - `bash`

@@ -6,7 +6,7 @@ cat >./Dockerfile <<EOL
 FROM waitingsong/node:$IMAGE_VER-alpine
 
 RUN set -xe \\
-  && apk add apache2-utils bash git jq openssh tar tzdata xz \\
+  && apk add apache2-utils bash git jq openssh tar tzdata xz npm \\
   && sed -i "s#:/bin/ash#:/bin/bash#g" /etc/passwd \\
   && cp /root/.ashrc /root/.bashrc \\
   && echo "alias sh='/bin/bash';" >> /root/.bashrc \\
