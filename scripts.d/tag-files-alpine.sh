@@ -11,12 +11,12 @@ exec "$@"' > ./docker-entrypoint.sh
 
 
 cat >./Dockerfile <<EOL
-# https://github.com/nodejs/docker-node/blob/master/13/alpine3.11/Dockerfile
+# https://github.com/nodejs/docker-node/blob/master/14/alpine3.11/Dockerfile
 # https://stackoverflow.com/a/43743532
 
 FROM alpine:3.11
 
-ENV NODE_VERSION 13.8.0
+ENV NODE_VERSION 14.3.0
 ENV ENV "/root/.ashrc"
 
 # Mirrors
@@ -46,7 +46,7 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh \\
       && case "\${alpineArch##*-}" in \\
         x86_64) \\
           ARCH='x64' \\
-          CHECKSUM="3325ec0bff602d30222e0c6c6af81aefa04d7d20946bac65d55dbb09d7d7e1e0" \\
+          CHECKSUM="685b6e68eb0fa5cc531cdf413535caf348873f4b397639969fdfb3896255ea99" \\
           ;; \\
         *) ;; \\
       esac \\
