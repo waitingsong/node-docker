@@ -19,12 +19,20 @@ ENV ENV "/root/.ashrc"
 RUN set -xe \\
   && MIRROR="https://mirrors.tuna.tsinghua.edu.cn" \\
   && sed -i "s#http://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
-  && apk add bash curl git jq nodejs npm openssh tar tzdata xz \\
+  && apk add bash curl git jq nodejs npm openssh tar tzdata xz zstd \\
   && sed -i "s#:/bin/ash#:/bin/bash#g" /etc/passwd \\
-  && echo "alias crontab='crontab -i'; alias ll='ls -l --color=auto'; export XZ_DEFAULTS='-T 0';" > \$ENV \\
+  && echo "alias crontab='crontab -i'; \\
+    alias ll='ls -l --color=auto'; \\
+    alias time='/usr/bin/time '; \\
+    alias ztar='tar -I zstdmt'; \\
+    export XZ_DEFAULTS='-T 0'; \\
+    export ZSTD_CLEVEL=9; \\
+    " > \$ENV \\
+  && echo "export XZ_DEFAULTS='-T 0'; \\
+    export ZSTD_CLEVEL=9; \\
+    " >> /etc/profile \\
   && cp /root/.ashrc /root/.bashrc \\
-  && echo "alias sh='/bin/bash';" >> /root/.bashrc \\
-  && echo 'export XZ_DEFAULTS="-T 0"' >> /etc/profile \\
+  && echo "alias sh='/bin/bash ';" >> /root/.bashrc \\
   && npm config set registry https://registry.npm.taobao.org \\
   && docker -v \\
   && bash --version \\

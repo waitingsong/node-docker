@@ -9,16 +9,17 @@
 
 Base [`node`][link_base_node_image] images does not contains additional utils such as `git`.
 
-Applications from base images:
+Applications from base apline images:
 - `node`
-- `npm`
-
-Additional applications list:
-- `bash`
 - `curl`
+- `zstd`
+
+Additional applications list for ci images:
+- `bash`
 - `git`
 - `jq`
 - `lerna`
+- `npm`
 - `openssh`
 - `tar`
 - `tzdata`

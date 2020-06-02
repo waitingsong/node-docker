@@ -8,10 +8,18 @@ FROM node:latest
 ENV ENV "/root/.ashrc"
 
 RUN set -xe \\
-  && echo "alias crontab='crontab -i'; alias ll='ls -l --color=auto'; export XZ_DEFAULTS='-T 0';" > \$ENV \\
-  && echo 'export XZ_DEFAULTS="-T 0"' >> /etc/profile \\
+  && echo "alias crontab='crontab -i'; \\
+    alias ll='ls -l --color=auto'; \\
+    alias time='/usr/bin/time '; \\
+    alias ztar='tar -I zstdmt'; \\
+    export XZ_DEFAULTS='-T 0'; \\
+    export ZSTD_CLEVEL=9; \\
+    " > \$ENV \\
+  && echo "export XZ_DEFAULTS='-T 0'; \\
+    export ZSTD_CLEVEL=9; \\
+    " >> /etc/profile \\
   && apt-get update \\
-  && apt-get -yq install curl git jq openssh-server tar \\
+  && apt-get -yq install curl git jq openssh-server tar zstd \\
   && apt-get -yq clean \\
   && git --version \\
   && node -v \\

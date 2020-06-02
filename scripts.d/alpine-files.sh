@@ -37,12 +37,20 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh \\
   && sed -i "s#http://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
   && addgroup -g 1000 node \\
   && adduser -u 1000 -G node -s /bin/sh -D node \\
-  && apk add --no-cache curl nodejs \\
+  && apk add --no-cache curl nodejs tar zstd \\
   && ln -s /usr/bin/node /usr/bin/nodejs \\
   && node --version \\
   # && sed -i "s#:/bin/ash#:/bin/bash#g" /etc/passwd \\
-  && echo "alias crontab='crontab -i'; alias ll='ls -l --color=auto'; export XZ_DEFAULTS='-T 0';" > \$ENV \\
-  && echo 'export XZ_DEFAULTS="-T 0"' >> /etc/profile \\
+  && echo "alias crontab='crontab -i'; \\
+    alias ll='ls -l --color=auto'; \\
+    alias time='/usr/bin/time '; \\
+    alias ztar='tar -I zstdmt'; \\
+    export XZ_DEFAULTS='-T 0'; \\
+    export ZSTD_CLEVEL=9; \\
+    " > \$ENV \\
+  && echo "export XZ_DEFAULTS='-T 0'; \\
+    export ZSTD_CLEVEL=9; \\
+    " >> /etc/profile \\
   && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf \\
   && mkdir -p /app
 
