@@ -30,6 +30,7 @@ ENV ENV "/root/.ashrc"
 COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN chmod a+x /usr/local/bin/docker-entrypoint.sh \\
+  && cat /etc/alpine-release \\
   # && NODE_DIST="https://nodejs.org/dist" \\
   # && MIRROR="https://uk.alpinelinux.org" \\
   && NODE_DIST="https://npm.taobao.org/dist" \\

@@ -17,6 +17,7 @@ FROM docker:latest
 ENV ENV "/root/.ashrc"
 
 RUN set -xe \\
+  && cat /etc/alpine-release \\
   && MIRROR="https://mirrors.tuna.tsinghua.edu.cn" \\
   && sed -i "s#http://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
   && apk add bash curl git jq nodejs npm openssh tar tzdata xz zstd \\
