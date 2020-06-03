@@ -16,7 +16,7 @@ cat >./Dockerfile <<EOL
 
 FROM alpine:3.11
 
-ENV NODE_VERSION 14.3.0
+ENV NODE_VERSION 14.4.0
 ENV ENV "/root/.ashrc"
 
 # Mirrors
@@ -47,7 +47,7 @@ RUN cat /etc/alpine-release \\
       && case "\${alpineArch##*-}" in \\
         x86_64) \\
           ARCH='x64' \\
-          CHECKSUM="685b6e68eb0fa5cc531cdf413535caf348873f4b397639969fdfb3896255ea99" \\
+          CHECKSUM="c33037cadcd6caab8593b1b3f8befad6137b621378462fad24b4100eba879e4c" \\
           ;; \\
         *) ;; \\
       esac \\
