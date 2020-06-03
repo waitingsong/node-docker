@@ -8,7 +8,6 @@ FROM node:latest
 ENV ENV "/root/.ashrc"
 
 RUN set -xe \\
-  && cat /etc/alpine-release \\
   && echo "alias crontab='crontab -i'; \\
     alias ll='ls -l --color=auto'; \\
     alias time='/usr/bin/time '; \\
