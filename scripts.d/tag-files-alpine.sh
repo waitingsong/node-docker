@@ -14,7 +14,7 @@ cat >./Dockerfile <<EOL
 # https://github.com/nodejs/docker-node/blob/master/14/alpine3.11/Dockerfile
 # https://stackoverflow.com/a/43743532
 
-FROM alpine:3.11
+FROM alpine:3.12
 
 ENV NODE_VERSION 14.4.0
 ENV ENV "/root/.ashrc"
