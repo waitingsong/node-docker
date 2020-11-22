@@ -2,6 +2,7 @@
 set -e
 
 cat >./Dockerfile <<EOL
+# With NPM
 
 FROM waitingsong/node:$IMAGE_VER-alpine
 
@@ -18,6 +19,7 @@ RUN set -xe \\
   && git --version \\
   && npm i -g lerna && lerna -v \\
   && cd \$(npm -g root) \\
+  && rm ./npm/man -rf \\
   && find . -type d -iname "docs" -print0 | xargs -0i rm -rf {} \\
   && find . -type d -iname "example" -print0 | xargs -0i rm -rf {} \\
   && find . -type d -iname "test" -print0 | xargs -0i rm -rf {} \\

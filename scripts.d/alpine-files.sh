@@ -12,6 +12,7 @@ exec "$@"' > ./docker-entrypoint.sh
 
 cat >./Dockerfile <<EOL
 # https://stackoverflow.com/a/43743532
+# Without NPM
 
 FROM alpine:3.12
 

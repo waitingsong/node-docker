@@ -13,6 +13,7 @@ exec "$@"' > ./docker-entrypoint.sh
 cat >./Dockerfile <<EOL
 # https://github.com/nodejs/docker-node/blob/master/14/alpine3.12/Dockerfile
 # https://stackoverflow.com/a/43743532
+# With NPM
 
 FROM alpine:3.12
 
