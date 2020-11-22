@@ -46,10 +46,10 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh \\
     alias ll='ls -l --color=auto'; \\
     alias time='/usr/bin/time '; \\
     alias ztar='tar -I zstdmt'; \\
-    export XZ_DEFAULTS='-T 0'; \\
+    export XZ_DEFAULTS='-T 0 -4'; \\
     export ZSTD_CLEVEL=9; \\
     " > \$ENV \\
-  && echo "export XZ_DEFAULTS='-T 0'; \\
+  && echo "export XZ_DEFAULTS='-T 0 -4'; \\
     export ZSTD_CLEVEL=9; \\
     " >> /etc/profile \\
   && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf \\
