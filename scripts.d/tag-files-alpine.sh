@@ -111,7 +111,7 @@ RUN cat /etc/alpine-release \\
   && echo "alias crontab='crontab -i'; \\
     alias ll='ls -l --color=auto'; \\
     alias time='/usr/bin/time '; \\
-    alias ztar='tar -I zstdmt'; \\
+    alias tarz='tar -I zstdmt'; \\
     export XZ_DEFAULTS='-T 0 -4'; \\
     export ZSTD_CLEVEL=9; \\
     " > \$ENV \\
