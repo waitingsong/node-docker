@@ -121,6 +121,7 @@ RUN cat /etc/alpine-release \\
   && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf \\
   && rm /usr/local/include/node -rf \\
   && cd /usr/local/lib/node_modules/ \\
+  && rm ./npm/man -rf \\
   && find . -type d -iname "docs" -print0 | xargs -0i rm -rf {} \\
   && find . -type d -iname "example" -print0 | xargs -0i rm -rf {} \\
   && find . -type d -iname "test" -print0 | xargs -0i rm -rf {} \\

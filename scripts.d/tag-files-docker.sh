@@ -42,7 +42,9 @@ RUN set -xe \\
   && tar --version \\
   && git --version \\
   && npm i -g lerna && lerna -v \\
+  && rm /usr/local/include/node -rf \\
   && cd \$(npm -g root) \\
+  && rm ./npm/man -rf \\
   && find . -type d -iname "docs" -print0 | xargs -0i rm -rf {} \\
   && find . -type d -iname "example" -print0 | xargs -0i rm -rf {} \\
   && find . -type d -iname "test" -print0 | xargs -0i rm -rf {} \\
