@@ -6,7 +6,10 @@ IMAGE_TAG=alpine
 TAGS="$IMAGE_VER-$IMAGE_TAG"
 BR="image-$TAGS"
 
+
 if [[ ! -z ${IMAGE_VER} ]]; then
+
+  echo -e 'First: Check specify version exists on https://pkgs.alpinelinux.org/packages?name=nodejs&branch=v3.12&repo=main \n'
 
   while true; do
     echo -n "[Question] "; read -e -p "Tag '$TAGS'. Do you want to continue? [y|n] " -i "" yn
