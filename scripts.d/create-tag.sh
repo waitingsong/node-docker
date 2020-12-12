@@ -16,7 +16,9 @@ if [[ ! -z ${IMAGE_TAG} ]]; then
     esac;
   done;
 
-  git branch -fd image-$IMAGE_TAG
+  set +e
+  git branch -fD image-$IMAGE_TAG
+  set -e
   source scripts.d/tag-files-$IMAGE_TAG.sh
 
   rm scripts.d -rf
