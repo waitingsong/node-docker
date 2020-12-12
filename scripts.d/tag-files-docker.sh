@@ -20,7 +20,8 @@ RUN set -xe \\
   && cat /etc/alpine-release \\
   && MIRROR="https://mirrors.tuna.tsinghua.edu.cn" \\
   && sed -i "s#http://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
-  && apk add bash curl git jq nodejs npm openssh tar tzdata xz zstd \\
+  && echo "@edge \$MIRROR/alpine/edge/main" >> /etc/apk/repositories \\
+  && apk add bash curl git jq nodejs@edge npm@edge openssh tar tzdata xz zstd \\
   && sed -i "s#:/bin/ash#:/bin/bash#g" /etc/passwd \\
   && echo "alias crontab='crontab -i'; \\
     alias ll='ls -l --color=auto'; \\
