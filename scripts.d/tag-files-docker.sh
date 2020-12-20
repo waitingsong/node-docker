@@ -75,11 +75,9 @@ RUN set -xe \\
   && find . -type f -iname "*.swp" -print0 | xargs -0i rm -f {} \\
   && find . -type f -iname "LICENCE*" -print0 | xargs -0i gzip {} \\
   && find . -type f -iname "LICENSE*" -print0 | xargs -0i gzip {} \\
-  && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf \\
-  && mkdir -p /app 
+  && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf 
  
 
-WORKDIR /app
 CMD ["bash"]
 
 EOL

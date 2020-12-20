@@ -53,10 +53,8 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh \\
   && echo "export XZ_DEFAULTS='-T 0 -4'; \\
     export ZSTD_CLEVEL=9; \\
     " >> /etc/profile \\
-  && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf \\
-  && mkdir -p /app
+  && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf 
 
-WORKDIR /app
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD [ "node" ]
 

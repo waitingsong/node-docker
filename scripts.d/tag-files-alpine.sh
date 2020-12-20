@@ -150,10 +150,8 @@ RUN cat /etc/alpine-release \\
   && find . -type f -iname "*.swp" -print0 | xargs -0i rm -f {} \\
   && find . -type f -iname "LICENCE*" -print0 | xargs -0i gzip {} \\
   && find . -type f -iname "LICENSE*" -print0 | xargs -0i gzip {} \\
-  && cd - \\
-  && mkdir -p /app
+  && cd - 
 
-WORKDIR /app
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD [ "node" ]
 

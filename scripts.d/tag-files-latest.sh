@@ -26,8 +26,7 @@ RUN set -xe \\
   && npm -v \\
   && ssh -V \\
   && yarn -v \\
-  && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf \\
-  && mkdir -p /app
+  && rm /var/cache/apk/* /var/lib/apt/lists/* /tmp/* /var/tmp/* -rf 
  
 EOL
 
