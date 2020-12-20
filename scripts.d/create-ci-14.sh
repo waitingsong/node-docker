@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-IMAGE_VER="14.15.1"
+IMAGE_VER="14.15.3"
 IMAGE_TAG=ci
 TAGS="$IMAGE_VER-$IMAGE_TAG"
 BR="image-$TAGS"
