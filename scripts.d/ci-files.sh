@@ -7,7 +7,7 @@ cat >./Dockerfile <<EOL
 FROM waitingsong/node:$IMAGE_VER-alpine
 
 RUN set -xe \\
-  && apk add --no-cache apache2-utils bash git jq npm@edge openssh postgresql-client@edge tar tzdata zstd \\
+  && apk add --no-cache apache2-utils bash git jq npm openssh postgresql-client tar tzdata zstd \\
   && sed -i "s#:/bin/ash#:/bin/bash#g" /etc/passwd \\
   && cp /root/.ashrc /root/.bashrc \\
   && echo "alias sh='/bin/bash ';" >> /root/.bashrc \\
