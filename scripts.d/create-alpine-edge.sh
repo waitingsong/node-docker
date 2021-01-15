@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-IMAGE_VER="14.15.4"
+#IMAGE_VER="14.15.4"
 IMAGE_TAG=alpine
 TAGS="$IMAGE_VER-$IMAGE_TAG"
 BR="image-$TAGS"
@@ -20,7 +20,7 @@ if [[ ! -z ${IMAGE_VER} ]]; then
     esac;
   done;
 
-  source scripts.d/alpine-files-14.sh
+  source scripts.d/alpine-files-edge.sh
 
   rm scripts.d -rf
   git checkout --orphan "$BR"

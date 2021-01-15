@@ -14,7 +14,7 @@ cat >./Dockerfile <<EOL
 # https://stackoverflow.com/a/43743532
 # Without NPM
 
-FROM alpine:3.12
+FROM alpine:3.13
 
 ENV NODE_VERSION $IMAGE_VER
 ENV ENV "/root/.ashrc"
@@ -34,7 +34,7 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh \\
   && cat /etc/alpine-release \\
   && NODE_DIST="https://npm.taobao.org/dist" \\
   && MIRROR="https://mirrors.tuna.tsinghua.edu.cn" \\
-  && sed -i "s#http://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
+  && sed -i "s#https://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
   && echo "@edge \$MIRROR/alpine/edge/main" >> /etc/apk/repositories \\
   && addgroup -g 1000 node \\
   && adduser -u 1000 -G node -s /bin/sh -D node \\
