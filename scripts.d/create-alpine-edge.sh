@@ -30,5 +30,5 @@ if [[ ! -z ${IMAGE_VER} ]]; then
   git push -f --set-upstream origin "$BR"
   git checkout master
 else
-  echo '[ERR] Tag name not passed. Tag should looks like "14.15.1" (without any prefix or postfix)'
+  echo '[ERR] Tag name not passed. Tag should looks like "14.15.4" (without any prefix or postfix)'
 fi

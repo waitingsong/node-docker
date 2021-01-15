@@ -9,7 +9,7 @@ BR="image-$TAGS"
 
 if [[ ! -z ${IMAGE_VER} ]]; then
 
-  echo -e 'First: Check specify version exists on https://pkgs.alpinelinux.org/packages?name=nodejs&branch=v3.12&repo=main \n'
+  echo -e 'First: Check specify version exists on https://pkgs.alpinelinux.org/packages?name=nodejs&branch=v3.13&repo=main \n'
 
   while true; do
     echo -n "[Question] "; read -e -p "Tag '$TAGS'. Do you want to continue? [y|n] " -i "" yn
@@ -30,5 +30,5 @@ if [[ ! -z ${IMAGE_VER} ]]; then
   git push -f --set-upstream origin "$BR"
   git checkout master
 else
-  echo '[ERR] Tag name not passed. Tag should looks like "12.13.0" (without any prefix or postfix)'
+  echo '[ERR] Tag name not passed. Tag should looks like "14.15.4" (without any prefix or postfix)'
 fi
