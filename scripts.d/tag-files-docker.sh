@@ -42,7 +42,7 @@ RUN set -xe \\
   && ssh -V \\
   && tar --version \\
   && git --version \\
-  && npm i -g lerna && lerna -v \\
+  && npm i -g lerna nyc rollup && lerna -v \\
   && rm /usr/local/include/node -rf \\
   && cd \$(npm -g root) \\
   && rm ./npm/man -rf \\

@@ -17,7 +17,7 @@ RUN set -xe \\
   && ssh -V \\
   && tar --version \\
   && git --version \\
-  && npm i -g lerna && lerna -v \\
+  && npm i -g lerna nyc rollup && lerna -v \\
   && cd \$(npm -g root) \\
   && rm ./npm/man -rf \\
   && find . -type d -iname "docs" -print0 | xargs -0i rm -rf {} \\
