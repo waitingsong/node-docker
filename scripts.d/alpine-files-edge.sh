@@ -35,7 +35,7 @@ RUN chmod a+x /usr/local/bin/docker-entrypoint.sh \\
   && NODE_DIST="https://npm.taobao.org/dist" \\
   && MIRROR="https://mirrors.tuna.tsinghua.edu.cn" \\
   && sed -i "s#https://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
-  #&& echo "@edge \$MIRROR/alpine/edge/main" >> /etc/apk/repositories \\
+  && apk upgrade --no-cache \\
   && addgroup -g 1000 node \\
   && adduser -u 1000 -G node -s /bin/sh -D node \\
   && apk add --no-cache curl nodejs@edge=~\$NODE_VERSION \\
