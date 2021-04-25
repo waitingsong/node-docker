@@ -22,7 +22,7 @@ RUN set -xe \\
   && sed -i "s#http://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
   && echo "@edge \$MIRROR/alpine/edge/main" >> /etc/apk/repositories \\
   && apk upgrade --no-cache \\
-  && apk add apache2-utils bash curl git jq nodejs@edge npm@edge openssh postgresql-client@edge tar tzdata zstd \\
+  && apk add apache2-utils bash bind-tools curl git jq net-tools nodejs@edge npm@edge openssh openssl postgresql-client@edge tar tzdata zstd \\
   && sed -i "s#:/bin/ash#:/bin/bash#g" /etc/passwd \\
   && echo "alias crontab='crontab -i'; \\
     alias ll='ls -l --color=auto'; \\
