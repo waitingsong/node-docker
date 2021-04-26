@@ -22,21 +22,21 @@ ENV ENV "/root/.ashrc"
 
 # Mirrors
 # http://dl-cdn.alpinelinux.org/alpine/MIRRORS.txt
-# https://uk.alpinelinux.org/alpine/
 # https://mirrors.tuna.tsinghua.edu.cn/alpine/
-# https://mirrors.sjtug.sjtu.edu.cn/alpine/
-# https://mirrors.ustc.edu.cn/alpine/
-# https://mirrors.nju.edu.cn/alpine/
-# https://mirror.lzu.edu.cn/alpine/
+
+# ENV MIRROR=https://uk.alpinelinux.org
+# ENV MIRROR=https://mirrors.tuna.tsinghua.edu.cn
+ENV MIRROR=https://mirrors.sjtug.sjtu.edu.cn
+# ENV MIRROR=https://mirrors.ustc.edu.cn
+# ENV MIRROR=https://mirrors.nju.edu.cn
+# ENV MIRROR=https://mirror.lzu.edu.cn
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN cat /etc/alpine-release \\
   && chmod a+x /usr/local/bin/docker-entrypoint.sh \\
   # && NODE_DIST="https://nodejs.org/dist" \\
-  # && MIRROR="https://uk.alpinelinux.org" \\
   && NODE_DIST="https://npm.taobao.org/dist" \\
-  && MIRROR="https://mirrors.tuna.tsinghua.edu.cn" \\
   && sed -i "s#http://dl-cdn.alpinelinux.org#\$MIRROR#g" /etc/apk/repositories \\
   && addgroup -g 1000 node \\
     && adduser -u 1000 -G node -s /bin/sh -D node \\
