@@ -18,6 +18,7 @@ RUN set -xe \\
   && tar --version \\
   && git --version \\
   && npm i -g lerna nyc rollup && lerna -v \\
+  && npm i -g @commitlint/cli @commitlint/config-conventional \\
   && cd \$(npm -g root) \\
   && rm ./npm/man -rf \\
   && find . -type d -iname "docs" -print0 | xargs -0i rm -rf {} \\
